@@ -1,4 +1,6 @@
 // stateless functional component
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 class IndecisionApp extends React.Component {
     constructor(props) {

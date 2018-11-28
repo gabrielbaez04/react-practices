@@ -6,8 +6,8 @@
 # testing
 /coverage
 
-# production
-/build
+# bundle
+/indecision_app/public/bundle.js
 
 # misc
 .DS_Store
