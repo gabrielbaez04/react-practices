@@ -7,21 +7,24 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "live-server": "^1.2.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "webpack": "^3.1.0"
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
-    "@babel/preset-es2016": "^7.0.0-beta.53"
+    "@babel/preset-es2016": "^7.0.0-beta.53",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "live-server public/",
-    "build": "webpack --watch",
-    "build-old": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
   },
   "author": "Gabriel Baez",
   "license": "ISC"
