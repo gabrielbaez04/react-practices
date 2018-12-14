@@ -1,13 +1,12 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# dependencies
-/indecision_app/node_modules
+*/node_modules
 
 # testing
 /coverage
 
 # bundle
-/indecision_app/public/bundle.js
+*/public/bundle.js
 
 # misc
 .DS_Store
