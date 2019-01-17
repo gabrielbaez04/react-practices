@@ -13,3 +13,11 @@ const Action = (props) => (
 );
 
 export default Action;
+
+
+
+function average (numbers){
+  return numbers.reduce(
+    function(previous, current){return previous+current}
+  )/numbers.length;
+}
