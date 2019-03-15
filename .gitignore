@@ -6,8 +6,7 @@
 /coverage
 
 # bundle
-*/public/bundle.js
-
+*/public/dist/
 # misc
 .DS_Store
 .env.local
