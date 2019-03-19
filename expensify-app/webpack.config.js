@@ -1,8 +1,10 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
+  const CSSExtract = new ExtractTextPlugin('styles.css');
+
   return {
     entry: './src/app.js',
     output: {
@@ -16,24 +18,26 @@ module.exports = (env) => {
         exclude: /node_modules/
       }, {
         test: /\.s?css$/,
-        use: [
-          {
-            loader: isProduction ? MiniCssExtractPlugin.loader : 'css-loader',
-            options: {
-              sourceMap: true
+        use: CSSExtract.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
             }
-          },
-          {
-            loader: isProduction ? MiniCssExtractPlugin.loader : 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+          ]
+        })
       }]
     },
     plugins: [
-      new MiniCssExtractPlugin({ filename: 'styles.css' })
+      CSSExtract
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
@@ -41,5 +45,5 @@ module.exports = (env) => {
       historyApiFallback: true,
       publicPath: '/dist/'
     }
-  }
+  };
 };
